@@ -12,7 +12,7 @@ except FileNotFoundError:
     print("Image file could not be found.")
     sys.exit()
 
-image.convert("RGBA")
+image = image.convert("RGBA")
 
 debug = "template" in sys.argv
 
