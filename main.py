@@ -39,4 +39,5 @@ print("new size %sx%s"%(image.size[0], image.size[1]))
 
 final = Image.new(image.mode, (image.size[0], image.size[1] * 2), (0, 0, 0, 0))
 final.paste(image, (0, 0))
-final.show()
+
+final.save(os.path.join(outPath, "output.png"))
