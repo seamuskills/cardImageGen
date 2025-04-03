@@ -41,11 +41,11 @@ if not size in ["S", "M", "L"]:
 
 match size:
     case 'S':
-        y = 200
-    case 'M':
-        y = 250
-    case 'L':
         y = 300
+    case 'M':
+        y = 500
+    case 'L':
+        y = 700
 
 #this decides with based on height while keeping the existing aspect ratio of the image.
 x = round((y/image.size[1]) * image.size[0])
