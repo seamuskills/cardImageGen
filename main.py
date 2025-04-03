@@ -4,12 +4,15 @@ import sys
 
 if (len(sys.argv) <= 1):
     print("arguments: <image path> [size (S/M/L)] [output directory]")
+    sys.exit()
 
 try:
     image = Image.open(sys.argv[1])
 except FileNotFoundError:
     print("Image file could not be found.")
     sys.exit()
+
+image.convert("RGBA")
 
 debug = "template" in sys.argv
 
