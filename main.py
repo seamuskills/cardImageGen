@@ -22,7 +22,7 @@ sample = Resampling.NEAREST if "pixel" in sys.argv else Resampling.BICUBIC
 if sample == Resampling.NEAREST:
     print("using nearest neighbor.")
 
-size = sys.argv[2][0] if len(sys.argv) >= 3 else 'M'
+size = sys.argv[2] if len(sys.argv) >= 3 else 'M'
 print("target card size %s" % size)
 outPath = sys.argv[3] if len(sys.argv) >= 4 else os.path.dirname(sys.argv[1])
 if outPath == '':
@@ -36,8 +36,11 @@ y = 0
 
 size = size.upper()
 if not size in ["S", "M", "L"]:
-    size = "M"
-    print("invalid size. defaulting to M")
+    try:
+        y = int(size)
+    except ValueError:
+        size = "M"
+        print("invalid size. defaulting to M")
 
 match size:
     case 'S':
